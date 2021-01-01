@@ -1,0 +1,59 @@
+<lv-menu></lv-menu>
+<div class="p-mt-2"></div>
+<div class="p-d-flex p-jc-center">
+  <p-card class="p-d-flex p-mt-1 p-lg-5 p-md-6">
+    <form [formGroup]="form" (submit)="register()">
+      <div class="p-grid p-fluid p-row">
+        <div class="p-col-12 p-md-12">
+          <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <input formControlName="userName" type="text" pInputText placeholder="Usuário">
+          </div>
+          <div class="errors">
+            <small *ngIf="form.get('userName').errors?.required" class="p-invalid">Campo obrigatório</small>
+          </div>
+        </div>
+        <div class="p-col-12 p-md-12">
+          <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-id-card"></i></span>
+            <input formControlName="fullName" type="text" pInputText placeholder="Nome Completo">
+          </div>
+          <div class="errors">
+            <small *ngIf="form.get('fullName').errors?.required" class="p-invalid">Campo obrigatório</small>
+          </div>
+        </div>
+        <div class="p-col-12 p-md-12">
+          <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
+            <input formControlName="email" type="text" pInputText placeholder="Email">
+          </div>
+          <div class="errors">
+            <small *ngIf="form.get('email').errors?.required" class="p-invalid">Campo obrigatório</small>
+            <small *ngIf="form.get('email').errors?.email" class="p-invalid">Não é um email válido</small>
+          </div>
+        </div>
+        <div class="p-col-12 p-md-12">
+          <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
+            <input formControlName="password" type="password" pInputText placeholder="Senha">
+          </div>
+          <div class="errors">
+            <small *ngIf="form.get('password').errors?.required" class="p-invalid">Campo obrigatório</small>
+          </div>
+        </div>
+        <div class="p-col-12 p-md-12">
+          <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
+            <input formControlName="confirmPassword" type="password" pInputText placeholder="Confirmar Senha">
+          </div>
+          <div class="errors">
+            <small *ngIf="form.get('confirmPassword').errors?.required" class="p-invalid">Campo obrigatório</small>
+          </div>
+        </div>
+        <div class="p-col-12 p-md-12">
+          <p-button type="submit" [disabled]="form.invalid" label="Entrar" iconPos="left"></p-button>
+        </div>
+      </div>
+    </form>
+  </p-card>
+</div>

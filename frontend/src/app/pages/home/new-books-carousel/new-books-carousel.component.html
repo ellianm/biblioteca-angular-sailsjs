@@ -1,0 +1,29 @@
+<p-carousel [value]="books" styleClass="custom-carousel" [numVisible]="3" [numScroll]="3" [circular]="true"
+  [autoplayInterval]="6000" [responsiveOptions]="responsiveOptions">
+  <ng-template pTemplate="header">
+    <div class="p-d-flex p-jc-center">
+      <h5>Últimos Livros Adicionados</h5>
+    </div>
+  </ng-template>
+  <ng-template let-book pTemplate="item">
+    <div class="book-item">
+      <div class="book-item-content">
+        <div class="p-mb-3">
+          <img src="https://woomagazine.com.br/wp-content/uploads/2017/08/pijamalistradoCARTAZ.jpg" [alt]="book.name"
+            class="book-image" />
+        </div>
+        <div>
+          <h4 class="p-mb-1">{{book.name}}</h4>
+          <h6 class="p-mt-0 p-mb-3">{{book.author}}</h6>
+          <div class="car-buttons p-mt-5">
+            <p-button routerLink="viewBook/{{book.id}}" type="button" styleClass="p-button p-button-rounded p-mr-2"
+              icon="pi pi-search"></p-button>
+            <p-toggleButton (click)="favorite(book)" [(ngModel)]="book.favorited"
+              styleClass="p-button-success p-button-rounded p-mr-2" onIcon="pi pi-star"
+              offIcon="pi pi-star-o p-button-primary"></p-toggleButton>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</p-carousel>

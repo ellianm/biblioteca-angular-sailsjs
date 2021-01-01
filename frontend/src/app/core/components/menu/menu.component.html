@@ -1,0 +1,12 @@
+<div *ngIf="loading" class="loading-container p-jc-center">
+  <p-progressSpinner></p-progressSpinner>
+</div>
+<p-menubar [model]="menus">
+  <ng-template pTemplate="start">
+    <img src="assets/icon.png" height="40" class="p-mr-2">
+  </ng-template>
+  <ng-template pTemplate="end">
+    <input type="text" pInputText placeholder="Pesquisar">
+  </ng-template>
+</p-menubar>
+<p-toast></p-toast>
