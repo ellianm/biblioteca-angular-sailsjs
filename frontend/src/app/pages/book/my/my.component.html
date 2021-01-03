@@ -1,0 +1,31 @@
+<p-table [value]="books">
+  <ng-template pTemplate="caption">
+      <div class="p-d-flex p-ai-center p-jc-between">
+          Livros
+          <p-button icon="pi pi-refresh"></p-button>
+      </div>
+  </ng-template>
+  <ng-template pTemplate="header">
+      <tr>
+          <th>Código</th>
+          <th>Autor</th>
+          <th>Capa</th>
+          <th>Data de Lançamento</th>
+          <th>Data incluído</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-book>
+      <tr>
+          <td>{{book.id}}</td>
+          <td>{{book.author}}</td>
+          <td><img src="{{book.pictureURL}}" alt="{{book.name}}"></td>
+          <td>{{book.releaseDate}}</td>
+          <td>{{book.createdAt}}</td>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="summary">
+      <div class="p-d-flex p-ai-center p-jc-between">
+          No total há {{books ? books.length : 0 }} livros.
+      </div>
+  </ng-template>
+</p-table>

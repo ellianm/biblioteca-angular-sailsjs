@@ -30,5 +30,8 @@ export class BookService {
             { id: book.id, favorited: book['favorited'], user: this.userService.userId }
         );
     }
+    getUserBooks() {
+        return this.http.get(environment.apiUrl + '/book/userBooks/' + this.userService.userId);
+    }
 
 }

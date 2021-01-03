@@ -1,4 +1,4 @@
 export class UserAuth {
-    id: number;
+    userId: number;
     name: string;
 }

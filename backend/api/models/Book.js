@@ -23,7 +23,7 @@ module.exports = {
     user: {
       model: 'user'
     },
-    pictureUrl: {
+    pictureURL: {
       type: 'text'
     }
   }

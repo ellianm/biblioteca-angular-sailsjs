@@ -1,3 +1,4 @@
+import { TableModule } from 'primeng/table';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -9,11 +10,13 @@ import { MessageModule } from 'primeng/message';
 import { CoreModule } from 'src/app/core/core.module';
 import { AddBookComponent } from './add-book/add-book.component';
 import { InputTextModule } from 'primeng/inputtext/';
+import { MyComponent } from './my/my.component';
 
 
 @NgModule({
     declarations: [
-        AddBookComponent
+        AddBookComponent,
+        MyComponent
     ],
     exports: [
         AddBookComponent
@@ -26,6 +29,7 @@ import { InputTextModule } from 'primeng/inputtext/';
         ButtonModule,
         MessageModule,
         FormsModule,
+        TableModule,
         ReactiveFormsModule
     ],
     providers: [],

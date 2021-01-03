@@ -30,7 +30,7 @@ export class UserService {
 
     private decodeAndNotify() {
         let user = jwt_decode(this.tokenService.getToken()) as UserAuth;
-        this.userId = user.id;
+        this.userId = user.userId;
         this.userSubject.next(user);
     }
 
