@@ -25,6 +25,9 @@ module.exports = {
     },
     pictureURL: {
       type: 'text'
+    },
+    favorited: {
+      type: 'string'
     }
   }
 };

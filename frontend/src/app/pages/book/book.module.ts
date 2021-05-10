@@ -11,12 +11,16 @@ import { CoreModule } from 'src/app/core/core.module';
 import { AddBookComponent } from './add-book/add-book.component';
 import { InputTextModule } from 'primeng/inputtext/';
 import { MyComponent } from './my/my.component';
+import { FavoriteComponent } from './favorite/favorite.component';
+import { ViewBookComponent } from './view-book/view-book.component';
 
 
 @NgModule({
     declarations: [
         AddBookComponent,
-        MyComponent
+        MyComponent,
+        FavoriteComponent,
+        ViewBookComponent
     ],
     exports: [
         AddBookComponent

@@ -64,6 +64,14 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "java": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.java.ts"
+                }
+              ]
             }
           }
         },
@@ -75,6 +83,9 @@
           "configurations": {
             "production": {
               "browserTarget": "frontend:build:production"
+            },
+            "java": {
+              "browserTarget": "frontend:build:java"
             }
           }
         },

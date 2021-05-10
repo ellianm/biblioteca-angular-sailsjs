@@ -20,7 +20,7 @@ export class AddBookComponent implements OnInit {
     private bookService: BookService,
     private messageService: MessageServiceResolver,
     private userService: UserService,
-    private router : Router) { }
+    private router: Router) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -41,11 +41,11 @@ export class AddBookComponent implements OnInit {
     let newBook = this.form.getRawValue() as Book;
     newBook.user = new User();
     newBook.user.id = this.userService.userId;
+    console.log(newBook);
     this.bookService.addBook(newBook).subscribe(
       () => {
         this.messageService.success("Livro adicionado com sucesso!");
         this.router.navigate(['']);
-
       },
       err => this.messageService.error("Não foi possível adicionar este livro, " + err.error.message)
     )

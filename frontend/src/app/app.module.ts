@@ -15,7 +15,7 @@ import { BookModule } from './pages/book/book.module';
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

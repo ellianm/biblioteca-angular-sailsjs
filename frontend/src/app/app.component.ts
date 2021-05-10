@@ -13,6 +13,7 @@ export class AppComponent {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private titleService: Title) { }
+
   ngOnInit(): void {
 
     this.router.events

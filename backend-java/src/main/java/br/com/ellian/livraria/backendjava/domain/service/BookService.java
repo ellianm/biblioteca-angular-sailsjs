@@ -20,9 +20,7 @@ public class BookService {
 
     public void delete(Long id) throws DataNotFoundException {
        Optional<Book> optBook = bookRepository.findById(id);
-       if (optBook.isPresent()) {
-           bookRepository.delete(optBook.get());
-       }
+        optBook.ifPresent(book -> bookRepository.delete(book));
        throw new DataNotFoundException("Livro com o id:" +id+ "não encontrado");
     }
 }

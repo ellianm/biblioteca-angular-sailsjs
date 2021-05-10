@@ -8,6 +8,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { NotAuthGuard } from './core/guards/not.auth.guard';
 import { RegisterComponent } from './pages/register/register.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { MyComponent } from './pages/book/my/my.component';
+import { FavoriteComponent } from './pages/book/favorite/favorite.component';
+import { ViewBookComponent } from './pages/book/view-book/view-book.component';
 
 
 const routes: Routes = [
@@ -40,6 +43,29 @@ const routes: Routes = [
     canActivate: [NotAuthGuard],
     data: {
       title: 'Registrar-se | Livraria'
+    }
+  },
+  {
+    path: 'my',
+    component: MyComponent,
+    canActivate: [AuthGuard],
+    data: {
+      title:'Meus Livros | Livraria'
+    }
+  },
+  {
+    path: 'favorite',
+    component: FavoriteComponent,
+    canActivate: [AuthGuard],
+    data: {
+      title:'Livros Favoritados | Livraria'
+    }
+  },
+  {
+    path:'viewBook/:id',
+    component: ViewBookComponent,
+    data: {
+      title:'Visualizar Livro | Livraria'
     }
   },
   {

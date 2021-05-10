@@ -14,7 +14,7 @@ export class BookService {
         private userService: UserService) { }
 
     getNewBooks() {
-        return this.http.get<Book[]>(environment.apiUrl + '/book/newBooks/'+ this.userService.userId);
+        return this.http.get<Book[]>(environment.apiUrl + '/book/newBooks/' + this.userService.userId);
     }
 
     addBook(book: Book) {
@@ -25,13 +25,28 @@ export class BookService {
         return this.http.put(environment.apiUrl + '/book/' + book.id, book);
     }
 
+    getBook(bookId: string) {
+        return this.http.get<Book>(environment.apiUrl + '/book/' + bookId);
+    }
+
     favorite(book: Book) {
-        return this.http.post(environment.apiUrl + '/book/favorite',
-            { id: book.id, favorited: book['favorited'], user: this.userService.userId }
+        let favorited = book['favorited'];
+
+        if (favorited) {
+            return this.http.post(environment.apiUrl + '/userfavorited',
+                { book: book.id, user: this.userService.userId }
+            )
+        }
+        return this.http.post(environment.apiUrl + '/userfavorited/unfavorite',
+            { book: book.id, user: this.userService.userId }
         );
     }
     getUserBooks() {
-        return this.http.get(environment.apiUrl + '/book/userBooks/' + this.userService.userId);
+        return this.http.get<Book[]>(environment.apiUrl + '/book/userBooks/' + this.userService.userId);
+    }
+
+    getUserFavoriteBooks() {
+        return this.http.get<Book[]>(environment.apiUrl + '/userfavorited/user/' + this.userService.userId);
     }
 
 }

@@ -40,27 +40,27 @@ module.exports = {
       delete obj.password;
       return obj;
     },
-    verifyPassword: function (password, cb) {
-      return bcrypt.compare(password, this.password, cb);
+    verifyPassword: function (password, callback) {
+      return bcrypt.compare(password, this.password, callback);
     }
   },
-  beforeCreate: function (data, cb) {
+  beforeCreate: function (data, callback) {
     bcrypt.hash(data.password, 6, function (err, hash) {
       data.password = hash;
       delete data.passwordConfirm;
-      cb();
+      callback();
     });
 
   },
-  beforeUpdate: function (data, cb) {
+  beforeUpdate: function (data, callback) {
     if (data.password) {
       bcrypt.hash(data.password, 6, function (err, hash) {
         data.password = hash;
         delete data.passwordConfirm;
-        cb();
+        callback();
       });
     } else {
-      return cb();
+      return callback();
     }
   }
 };
